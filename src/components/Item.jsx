@@ -6,10 +6,10 @@ function Item({ item, setTodos }) {
             })
         })
     };
-    
+
     return (
-        <li className="todo_item" id={item?.id} onClick={completeTodo}>
-            <button className="todo_items_left">
+        <li className="todo_item" id={item?.id}>
+            <button className="todo_items_left" onClick={completeTodo}>
                 <svg
                     clipRule="evenodd"
                     fillRule="evenodd"
@@ -24,7 +24,7 @@ function Item({ item, setTodos }) {
                 >
                     <circle cx="11.998" cy="11.998" fillRule="nonzero" r="9.998" />
                 </svg>
-                <p>{item?.title}</p>
+                <p style={item.is_completed ? {textDecoration: "line-through"} : {} }>{item?.title}</p>
             </button>
             <div className="todo_items_right">
                 <button>
