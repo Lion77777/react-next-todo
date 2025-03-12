@@ -1,16 +1,28 @@
-function Form() {
+function Form({setTodos}) {
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        const value = event.target.todo.value;
+
+        setTodos((prevTodos) => [
+            ...prevTodos,
+            {
+                title: value,
+                id: self.crypto.randomUUID(),
+                is_completed: false
+            }
+        ]);
+
         event.target.reset();
     };
 
     return (
-        <form className="form" onSubmit={() => handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <label htmlFor="todo">
                 <input type="text"
                     name="todo"
                     id="todo"
-                    placeholder="Add you next task"
+                    placeholder="Add your next task"
                 />
             </label>
             <button>
