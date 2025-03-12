@@ -1,6 +1,6 @@
 function Header() {
     return (
-        <>
+        <header>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 clipRule="evenodd"
@@ -18,7 +18,7 @@ function Header() {
                 />
             </svg>
             <h1>TODO</h1>
-        </>
+        </header>
     )
 }
 
