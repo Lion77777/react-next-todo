@@ -16,6 +16,7 @@ function Item({ item }) {
                 >
                     <circle cx="11.998" cy="11.998" fillRule="nonzero" r="9.998" />
                 </svg>
+                <p>{item?.title}</p>
             </button>
             <div className="todo_items_right">
                 <button>
