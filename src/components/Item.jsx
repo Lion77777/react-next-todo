@@ -5,7 +5,8 @@ function Item({ item, setTodos }) {
                 return todo.id === item.id ? {...todo, is_completed: !todo.is_completed} : todo
             })
         })
-    }
+    };
+    
     return (
         <li className="todo_item" id={item?.id} onClick={completeTodo}>
             <button className="todo_items_left">
