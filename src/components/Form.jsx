@@ -1,3 +1,5 @@
+"use client";
+
 function Form() {
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -5,7 +7,7 @@ function Form() {
     };
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={() => handleSubmit}>
             <label htmlFor="todo">
                 <input type="text"
                     name="todo"
