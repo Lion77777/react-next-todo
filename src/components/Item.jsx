@@ -1,6 +1,13 @@
-function Item({ item }) {
+function Item({ item, setTodos }) {
+    const completeTodo = () => {
+        setTodos((prevTodos) => {
+            return prevTodos.map((todo) => {
+                return todo.id === item.id ? {...todo, is_completed: !todo.is_completed} : todo
+            })
+        })
+    }
     return (
-        <li className="todo_item" id={item?.id}>
+        <li className="todo_item" id={item?.id} onClick={completeTodo}>
             <button className="todo_items_left">
                 <svg
                     clipRule="evenodd"
