@@ -1,6 +1,6 @@
 import React from "react";
 
-function Item({ item, setTodos }) {
+function Item({ item, setTodos, todos }) {
     const [editing, setEditing] = React.useState(false);
     const inputRef = React.useRef(null);
 
@@ -9,7 +9,11 @@ function Item({ item, setTodos }) {
             return prevTodos.map((todo) => {
                 return todo.id === item.id ? { ...todo, is_completed: !todo.is_completed } : todo
             })
-        })
+        });
+
+        const updatedTodos = JSON.stringify(todos);
+
+        localStorage.setItem('todos', updatedTodos);
     };
 
     const handleEdit = () => {
@@ -37,15 +41,29 @@ function Item({ item, setTodos }) {
     const handleInputSubmit = (event) => {
         event.preventDefault();
 
+        const updatedTodos = JSON.stringify(todos);
+
+        localStorage.setItem('todos', updatedTodos);
+
         setEditing(false);
     };
 
     const handleInputBlur = () => {
+        const updatedTodos = JSON.stringify(todos);
+
+        localStorage.setItem('todos', updatedTodos);
+
         setEditing(false);
     };
 
     const handleDelete = () => {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== item.id));
+
+        const updatedTodos = JSON.stringify(
+            todos.filter((todo) => todo.id !== item.id)
+        );
+
+        localStorage.setItem('todos', updatedTodos);
     };
 
     return (

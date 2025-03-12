@@ -4,7 +4,7 @@ function TODOList({ todos, setTodos }) {
     return (
         <ol className="todo_list">
             {todos && todos.length > 0 ? (
-                todos?.map((item, index) => <Item key={index} item={item} setTodos={setTodos}/>)
+                todos?.map((item, index) => <Item key={index} item={item} setTodos={setTodos} todos={todos}/>)
             ) : (
                 <p>There is no tasks</p>
             )}
