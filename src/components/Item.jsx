@@ -58,3 +58,5 @@ function Item({ item }) {
         </li>
     );
 }
+
+export default Item;
